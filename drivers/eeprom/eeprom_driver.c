@@ -20,28 +20,34 @@
 #include "eeprom_driver.h"
 
 uint8_t eeprom_read_byte(const uint8_t *addr) {
-    uint8_t ret;
+    uint8_t ret = 0;
     eeprom_read_block(&ret, addr, 1);
     return ret;
 }
 
 uint16_t eeprom_read_word(const uint16_t *addr) {
-    uint16_t ret;
+    uint16_t ret = 0;
     eeprom_read_block(&ret, addr, 2);
     return ret;
 }
 
 uint32_t eeprom_read_dword(const uint32_t *addr) {
-    uint32_t ret;
+    uint32_t ret = 0;
     eeprom_read_block(&ret, addr, 4);
     return ret;
 }
 
-void eeprom_write_byte(uint8_t *addr, uint8_t value) { eeprom_write_block(&value, addr, 1); }
+void eeprom_write_byte(uint8_t *addr, uint8_t value) {
+    eeprom_write_block(&value, addr, 1);
+}
 
-void eeprom_write_word(uint16_t *addr, uint16_t value) { eeprom_write_block(&value, addr, 2); }
+void eeprom_write_word(uint16_t *addr, uint16_t value) {
+    eeprom_write_block(&value, addr, 2);
+}
 
-void eeprom_write_dword(uint32_t *addr, uint32_t value) { eeprom_write_block(&value, addr, 4); }
+void eeprom_write_dword(uint32_t *addr, uint32_t value) {
+    eeprom_write_block(&value, addr, 4);
+}
 
 void eeprom_update_block(const void *buf, void *addr, size_t len) {
     uint8_t read_buf[len];
@@ -70,4 +76,10 @@ void eeprom_update_dword(uint32_t *addr, uint32_t value) {
     if (orig != value) {
         eeprom_write_dword(addr, value);
     }
+}
+
+void eeprom_driver_format(bool erase) __attribute__((weak));
+void eeprom_driver_format(bool erase) {
+    (void)erase; /* The default implementation assumes that the eeprom must be erased in order to be usable. */
+    eeprom_driver_erase();
 }

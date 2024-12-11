@@ -18,48 +18,69 @@
 
 #pragma once
 
+#include "send_string.h"
 #include "keymap_danish.h"
 
 // clang-format off
 
-const bool ascii_to_shift_lut[128] PROGMEM = {
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
+const uint8_t ascii_to_shift_lut[16] PROGMEM = {
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
 
-    0, 1, 1, 1, 0, 1, 1, 0,
-    1, 1, 1, 0, 0, 0, 0, 1,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 1, 1, 0, 1, 1, 1,
-    0, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 0, 0, 0, 1, 1,
-    1, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0
+    KCLUT_ENTRY(0, 1, 1, 1, 0, 1, 1, 0),
+    KCLUT_ENTRY(1, 1, 1, 0, 0, 0, 0, 1),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 1, 1, 0, 1, 1, 1),
+    KCLUT_ENTRY(0, 1, 1, 1, 1, 1, 1, 1),
+    KCLUT_ENTRY(1, 1, 1, 1, 1, 1, 1, 1),
+    KCLUT_ENTRY(1, 1, 1, 1, 1, 1, 1, 1),
+    KCLUT_ENTRY(1, 1, 1, 0, 0, 0, 1, 1),
+    KCLUT_ENTRY(1, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0)
 };
 
-const bool ascii_to_altgr_lut[128] PROGMEM = {
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
+const uint8_t ascii_to_altgr_lut[16] PROGMEM = {
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
 
-    0, 0, 0, 0, 1, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    1, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 1, 1, 1, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 1, 1, 1, 1, 0
+    KCLUT_ENTRY(0, 0, 0, 0, 1, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(1, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 1, 1, 1, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 1, 1, 1, 1, 0)
+};
+
+const uint8_t ascii_to_dead_lut[16] PROGMEM = {
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 1, 0),
+    KCLUT_ENTRY(1, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 1, 0)
 };
 
 const uint8_t ascii_to_keycode_lut[128] PROGMEM = {
